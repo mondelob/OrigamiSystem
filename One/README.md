@@ -1,18 +1,12 @@
 # One
 
-> Simple boot and hello message OS
+> Simple BIOS-interrupt echo bootloader
 
-*One* is not a fully **Operative System** (note the *Operative* word). *One*
-objectives are the basic ones:
-
-* [Bootloader](#bootloader)
-* [Kernel](#kernel)
+*One* is not an **Operative System**, is a *bootloader* that echoes back all
+the keyboard input using the **BIOS** interrupts.
 
 ## Bootloader
 
-The *One* **bootleader** is the simpliest, it prints a message and loads the
-**Kernel**.
-
-## Kernel
-
-The **kernel** is just a *Hello World!* message.
+The *One* **bootleader** is the simpliest, it prints a message and waits for
+another message to echo back this message. All this is done using the **BIOS**
+interrupts vectors.
