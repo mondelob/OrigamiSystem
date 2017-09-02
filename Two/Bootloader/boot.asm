@@ -1,13 +1,16 @@
 ; boot.asm
 ; Shows a message on the boot sequence and proceeds to load the Kernel
 
-    ; cli             ; Ignore all other interrupts
+    cli             ; Ignore all other interrupts
 [ORG 0x7C00]        ; Set an offset to the address 0x07C0. This address
                     ; is where the bootloader is expected.
     xor ax, ax      ; Set AX register to zero
     mov ds, ax      ; Copy this register to the DS segment
     mov ss, ax      ; Set the Stack Selector to 0. Stack starts at 0
-    mov sp, 0x7C00  ; Past code start
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov sp, 0x7FFF  ; Past code start
 
     cld             ; #####################################################
 
