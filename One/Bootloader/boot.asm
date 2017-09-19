@@ -8,6 +8,8 @@
 ; - Interrupt vector 0x10 : Function 0x0E - Write character on TTY mode
 ; - Interrupt vector 0x16 : Function 0x00 - Read character
 
+[BITS 16]             ; Generate on 16 bit mode although NASM it does by
+                      ; default
 [ORG 0x7C00]          ; Set an offset to the address 0x07C0. This address
                       ; is where the bootloader is expected.
     xor ax, ax        ; Set the AX register to zero
