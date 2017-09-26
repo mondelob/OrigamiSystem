@@ -18,7 +18,7 @@ bin:
 	echo "Creating binaries directory"
 	mkdir bin/
 
-bin/boot.bin : Bootloader/boot.asm
+bin/boot.bin : src/boot.asm
 	echo "Assembling $@"
 	$(ASM) $(ASM_OPTS) $(ASM_OUTPUT) $@ $<
 

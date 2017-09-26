@@ -16,6 +16,7 @@
     mov ds, ax        ; Set the Data Segment to zero
     mov ss, ax        ; Set the Stack to zero
     mov sp, 0x7C00    ; Set the Stack pointer
+    cli		      ; Set the direction flag
     jmp main          ; Start the main program
 
 return:               ; Function to return
