@@ -1,2 +1,5 @@
 # All bin folders are ignored
 */bin/
+
+# All environment shell files ignored
+*/env.sh
