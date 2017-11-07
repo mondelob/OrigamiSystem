@@ -1,6 +1,6 @@
 # Two
 
-> Simple NASM bootloader and C kernel
+> Simple NASM multiboot and C kernel
 
 *Two* is a simple bootloader in NASM that ends running a simple kernel in C.
 Most of this work is based on the [OSDev](http://www.osdev.org/) project
