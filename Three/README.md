@@ -1,9 +1,9 @@
 # Three
 
-> NASM bootloader (no multiboot) and simple C kernel
+> Simple NASM multiboot and C kernel with keyboard support
 
-*Three* is a bootloader in NASM that jumps to protected mode and runs a kernel
-in C.
+*Three* is a simple bootloader in NASM that ends running a simple kernel in C
+that echoes all the user input messages.
 
 <!-- ## Botlooader -->
 <!-- TODO - explain boot process -->
