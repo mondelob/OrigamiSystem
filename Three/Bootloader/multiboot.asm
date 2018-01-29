@@ -16,22 +16,20 @@ MAGIC     = 0x1BADB002           ; Magic number to be visible for bootloader
 CHECKSUM  = (0 - MAGIC - FLAGS)  ; Check the multiboot
 STACKSIZE = 0x4000               ; Set the size to the stack to 16K
 
-; Multiboot standards
-.multiboot:
-align 4
-    dd MAGIC
-    dd FLAGS
-    dd CHECKSUM
-
 ; Allocate space for a 16k stack
 section '.bss'
 align 4
 _stack:
     rb STACKSIZE
 
-; Linker will start here
-; Already on protected mode
-section '.text'
+; Multiboot standards
+section '.mbheader'
+.multiboot:
+align 4
+    dd MAGIC
+    dd FLAGS
+    dd CHECKSUM
+
 _start:
     mov esp, _stack + STACKSIZE  ; Point the stack pointer to
                                  ; the top of the stack
