@@ -2,10 +2,10 @@
 ; 2018-01-26
 ; Bruno Mondelo Giaramita
 
-VIDEO_MEMORY = 0xB8000           ; Symbolic constant pointing to the video
+VIDEO_MEMORY      = 0xB8000      ; Symbolic constant pointing to the video
                                  ; memory
-VGA_WIDTH    = 80                ; VGA screen max width
-VGA_HEIGHT   = 25                ; VGA screen max height
+VGA_WIDTH         = 80           ; VGA screen max width
+VGA_HEIGHT        = 25           ; VGA screen max height
 
 ; VGA colors enumeration
 VGA_BLACK         = 0x0
