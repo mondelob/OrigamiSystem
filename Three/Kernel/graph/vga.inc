@@ -27,20 +27,33 @@ VGA_WHITE         = 0xF
 
 section ".text"
 
-macro putchar ucc, x, y {        ; Macro to send a character to the video memory
-                                 ; ucc is the character, while x and y are the
-                                 ; positions on the screen
-    mov edx, VIDEO_MEMORY        ; Set register to point to video memory
-    add edx, (y * 2) * VGA_WIDTH ; Add Y offset of the character on the screen
-    add edx, x * 2               ; Add X offet of the character on the screen
-    mov [edx], ucc               ; Set character
-}
+; THIS SHOULD BE A MACRO : TODO
+putchar:                         ; Puts a character on the video memory
+                                 ; AX: character
+                                 ; EBX: x positon
+                                 ; ECX: y positon
+    push ebx                     ; Store EBX register
+    push ecx                     ; Store ECX register
+    push edx                     ; Store EDX register
+    mov edx, VIDEO_MEMORY        ; Point to video memory
+    imul ebx, 2                  ; Every entry is two bytes
+    add edx, ebx                 ; Add horizontal offset
+    imul ecx, 2                  ; Entries are two bytes
+    imul ecx, VGA_WIDTH          ; Multiply per line width
+    add edx, ecx                 ; Add vertical offset
+    mov [edx], ax                ; Add entry to memory array
+    pop ebx                      ; Restore EBX
+    pop ecx                      ; Restore ECX
+    pop edx                      ; Restore EDX
+    ret
 
 vga_color:                       ; Sets the AH register to the color attributte
                                  ; given it's foreground and background colors
                                  ; BH : foreground color
                                  ; BL : background color
+    push bx                      ; Store BL on the stack
     mov ah, bl                   ; Set AH register to the background color
     shl ah, 4                    ; Shift four positions the AH register
     or ah, bh                    ; Or with the foreground color
+    pop bx                       ; Restore the BL register
     ret
